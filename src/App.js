@@ -1,105 +1,170 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./containers/login";
-import Home from "./containers/home";
-import Room from "./containers/room";
-import CreateRoom from "./containers/createRoom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from 'react-bootstrap'
-
-class App extends React.Component {
-  state = {
-    currentUser: "",
-    hostID: "",
-    roomName: "",
-    allUsers: [],
-    gameStarted: false,
-    hostName: "",
-  };
-
-  startGame = () => {
-    this.setState({
-      gameStarted: true,
-    });
-  };
-
-  endGame = () => {
-    this.setState({
-      gameStarted: false,
-    });
-  };
-
-  setCreateRoom = (currentUser, roomName, hostID, hostName) => {
-    this.setState({
-      currentUser: currentUser,
-      roomName: roomName,
-      hostID: hostID,
-      hostName: hostName,
-    });
-  };
-
-  setLogin = (currentUser, roomName, hostID, hostName) => {
-    this.setState({
-      currentUser: currentUser,
-      roomName: roomName,
-      hostID: hostID,
-      hostName: hostName,
-    });
-  };
-
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Route
-            exact
-            path="/"
-            render={(routeParams) => {
-              return <Home {...routeParams} />;
+function App() {
+  return (
+    <div
+      style={{
+        fontFamily: "poppins",
+        padding: "0",
+        margin: "0",
+        height: "100vh",
+        backgroundColor: "#D661FF",
+      }}
+    >
+      <header
+        style={{
+          height: "10%",
+        }}
+      >
+        <nav
+          style={{
+            height: "100%",
+          }}
+        >
+          <ul
+            style={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
             }}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(routeParams) => {
-              return <Login setLogin={this.setLogin} {...routeParams} />;
+          >
+            <li
+              style={{
+                cursor: "pointer",
+                listStyle: "none",
+              }}
+            >
+              <a
+                href="#"
+                style={{
+                  color: "black",
+                }}
+              >
+                Link 1
+              </a>
+            </li>
+            <li
+              style={{
+                cursor: "pointer",
+                listStyle: "none",
+              }}
+            >
+              <a
+                href="#"
+                style={{
+                  color: "black",
+                }}
+              >
+                Link 2
+              </a>
+            </li>
+            <li
+              style={{
+                cursor: "pointer",
+                listStyle: "none",
+              }}
+            >
+              <a
+                href="#"
+                style={{
+                  color: "black",
+                }}
+              >
+                Link 3
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section style={{ display: "grid", placeItems: "center" }}>
+        <main
+          style={{
+            backgroundColor: "white",
+            border: "2px solid black",
+            borderRadius: "5px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            width: "95%",
+            padding: "2%",
+            filter: "drop-shadow(10px 10px 0 black)"
+          }}
+        >
+          <h1
+            style={{
+              padding: "2%",
+              border: "2px solid black",
+              borderRadius: "5px",
+              backgroundColor: "#FF81CC",
+              fontFamily: "Black Han Sans",
+              fontSize: "4em",
             }}
-          />
-          <Route
-            exact
-            path="/room/:id"
-            render={(routeParams) => {
-              return (
-                <Room
-                  currentUser={this.state.currentUser}
-                  startGame={this.startGame}
-                  endGame={this.endGame}
-                  gameStarted={this.state.gameStarted}
-                  hostID={this.state.hostID}
-                  roomName={this.state.roomName}
-                  hostName={this.state.hostName}
-                  {...routeParams}
-                />
-              );
+          >
+            Inline Styling Mess
+          </h1>
+          <h3
+            style={{
+              padding: "2%",
+              backgroundColor: "#4ED688",
+              fontFamily: "Jura",
+              fontSize: "2em",
+              border: "2px solid black",
+              borderRadius: "5px",
             }}
-          />
-          <Route
-            exact
-            path="/create_room"
-            render={(routeParams) => {
-              return (
-                <CreateRoom
-                  setCreateRoom={this.setCreateRoom}
-                  {...routeParams}
-                />
-              );
-            }}
-          />
-        </div>
-      </Router>
-    );
-  }
+          >
+            A CSS Adventure
+          </h3>
+          <section>
+            <div>
+              <p
+                style={{
+                  padding: "2%",
+                  border: "2px solid black",
+                  borderRadius: "5px",
+                  backgroundColor: "#FFCB46",
+                }}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </section>
+        </main>
+      </section>
+      <footer style={{
+          height: "10%"
+        }}>
+        <section style={{
+            height: "100%",
+          }}>
+          <ul style={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+            }}>
+            <li style={{
+                cursor: "pointer",
+                listStyle: "none",
+              }}>
+              <a href="mailto:codetombomb@gmail.com">Email Me!</a>
+            </li>
+            <li style={{
+                cursor: "pointer",
+                listStyle: "none",
+              }}>
+              <a href="https://github.com/codetombomb">GitHub</a>
+            </li>
+          </ul>
+        </section>
+      </footer>
+    </div>
+  );
 }
-
 export default App;
